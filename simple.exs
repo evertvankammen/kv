@@ -288,3 +288,13 @@ IO.puts(yorn)
 {:ok, file} = File.open("hello", [:write])
 IO.binwrite(file, yorn)
 File.close(file)
+
+#Elixir processes are isolated and don’t share anything by default.
+#Therefore, a failure in a process will never crash or corrupt the
+#state of another process.
+
+#Links, however, allow processes to establish a relationship in case
+#of failure. We often link our processes to supervisors which will
+#detect when a process dies and start a new process in its place.
+
+#spawn/1 and spawn_link/1 are the basic primitives for creating processes in Elixir

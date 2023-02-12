@@ -4,7 +4,7 @@ defmodule KV do
   end
 
   defp loop(map) do #defp = private
-    receive do
+    receive do #waits for a message
       {:get, key, caller} ->
         send caller, Map.get(map, key)
         loop(map)
