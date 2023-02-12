@@ -279,3 +279,12 @@ send(:kv, {:get, :hello, self()}) #proces has name :kv
 
 Agent.update(pid, fn map -> Map.put(map, :hello, :world) end)
 Agent.get(pid, fn map -> Map.get(map, :hello) end)
+
+yorn = IO.gets("yes or no? ")
+
+IO.puts(yorn)
+
+
+{:ok, file} = File.open("hello", [:write])
+IO.binwrite(file, yorn)
+File.close(file)
