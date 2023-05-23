@@ -1,3 +1,5 @@
+Code.require_file("do_something.ex")
+Code.require_file("kc.ex")
 defmodule KV.Xxx do
   def yyy() do
     IO.puts("Hello world")

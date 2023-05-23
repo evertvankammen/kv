@@ -1,18 +1,8 @@
-defmodule KV do
-  @moduledoc """
-  Documentation for `KV`.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> KV.hello()
-      :world
-
-  """
+defmodule HelloWorld do
   def hello do
-    :world
+    receive do
+      {pid, name} -> send(pid, {:ok, "Hello, #{name}!"})
+      hello()
+    end
   end
 end
